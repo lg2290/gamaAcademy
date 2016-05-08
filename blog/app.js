@@ -1,39 +1,44 @@
-var port = process.env.PORT || 3000,
-    http = require('http'),
-    fs = require('fs'),
-    html = fs.readFileSync('index.html');
+/*imports*/
+var bodyParser = require('body-parser');
+var dataSource = require('./js/dataSource.js');
+var express = require('express');
+var mongoose = require('mongoose');
+var path = require('path');
 
-var log = function(entry) {
-    fs.appendFileSync('/tmp/sample-app.log', new Date().toISOString() + ' - ' + entry + '\n');
-};
+/*global variables */
+var fileUrl = 'fileLinkURL-asdaffkhnlvmemtksnsknvs';
 
-var server = http.createServer(function (req, res) {
-    if (req.method === 'POST') {
-        var body = '';
+/*app config*/
+var app = express();
 
-        req.on('data', function(chunk) {
-            body += chunk;
-        });
 
-        req.on('end', function() {
-            if (req.url === '/') {
-                log('Received message: ' + body);
-            } else if (req.url = '/scheduled') {
-                log('Received task ' + req.headers['x-aws-sqsd-taskname'] + ' scheduled at ' + req.headers['x-aws-sqsd-scheduled-at']);
-            }
+app.use(bodyParser.urlencoded({ extended: false })) 
+app.use(bodyParser.json())
+app.use(express.static(__dirname + '/public'));
 
-            res.writeHead(200, 'OK', {'Content-Type': 'text/plain'});
-            res.end();
-        });
-    } else {
-        res.writeHead(200);
-        res.write(html);
-        res.end();
-    }
+app.listen(3000);
+
+/*app req*/
+app.get('/', function(req, res){
+    res.sendFile(path.join(__dirname + '/index.html'));
 });
 
-// Listen on port 3000, IP defaults to 127.0.0.1
-server.listen(port);
+console.log('Server running at http://127.0.0.1:' + '3000' + '/');
 
-// Put a friendly message on the terminal
-console.log('Server running at http://127.0.0.1:' + port + '/');
+app.post('/lead', function(req, res){
+    dataSource.saveLead(req.body);
+    res.send(fileUrl);
+});
+
+app.get('/' + fileUrl, function(req, res){
+	res.download(path.join(__dirname + '/files/ebook.pdf'));
+});
+
+/*db connect */
+mongoose.connect('mongodb://bloguser:gamablog@ds017672.mlab.com:17672/gamablog', function (err, db) {
+    if (err) {
+        throw err;
+    } else {
+        console.log("successfully connected to the database");
+    }
+});

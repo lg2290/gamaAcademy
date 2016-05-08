@@ -2,92 +2,114 @@
 <html>
   <head>
     <title>Elastic Beanstalk</title>
-    <style>
-      body {
-        color: #ffffff;
-        font-family: Arial, sans-serif;
-        font-size:14px;
-        -moz-transition-property: text-shadow;
-        -moz-transition-duration: 4s;
-        -webkit-transition-property: text-shadow;
-        -webkit-transition-duration: 4s;
-        text-shadow: none;
-      }
-      body.blurry {
-        -moz-transition-property: text-shadow;
-        -moz-transition-duration: 4s;
-        -webkit-transition-property: text-shadow;
-        -webkit-transition-duration: 4s;
-        text-shadow: #fff 0px 0px 25px;
-      }
-      a {
-        color: #55aaff;
-      }
-      .textColumn, .linksColumn {
-        padding: 2em;
-      }
-      .textColumn {
-        position: absolute;
-        top: 0px;
-        right: 50%;
-        bottom: 0px;
-        left: 0px;
-
-        text-align: right;
-        padding-top: 11em;
-        background-color: #73A53E;
-
-      }
-      .textColumn p {
-        width: 75%;
-        float:right;
-      }
-      .linksColumn {
-        position: absolute;
-        top:0px;
-        right: 0px;
-        bottom: 0px;
-        left: 50%;
-
-        background-color: #33342D;
-      }
-
-      h1 {
-        color: #33342D;
-        font-size: 500%;
-        font-weight: normal;
-        margin-bottom: 0em;
-      }
-      h2 {
-        font-size: 200%;
-        font-weight: normal;
-        margin-bottom: 0em;
-      }
-      ul {
-        padding-left: 1em;
-        margin: 0px;
-      }
-      li {
-        margin: 1em 0em;
-      }
-    </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/index.css">
   </head>
   <body>
-    <div class="textColumn">
-      <h1>Fala Grupo 9!</h1>
-      <p>Vamo fazer a porra do BLog!!</p>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    Obter Ebook!
+                </button>
+                <!--<a class="navbar-brand" href="#"><img src="img/logo.png" height=30 width=41></a>-->
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <div class="navbar-form navbar-center">
+                  <div class="form-group ebookMessage">
+                    Faça o download do nosso ebook com dicas exclusivas!
+                  </div>
+                  <div class="form-group">
+                      <label class="sr-only" for="email">Email address</label>
+                      <input class="form-control" id="leadEmail" placeholder="Email" type="email"/>
+                  </div>
+                  <div class="form-group">
+                      <label class="sr-only" for="name">Name</label>
+                      <input class="form-control" id="leadName" placeholder="Nome" type="text"/>
+                  </div>
+                  <button class="btn btn-info" id="leadBtn">Download</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <header class="jumbotron">
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="container">
+          <div class="row row-header">
+              <div class="col-xs-12 col-sm-8">
+                  <h1>Vida de Produtor</h1>
+                  <p style="padding:40px;"></p>
+                  <p>Bla bla bla bla bla bla bla</p>
+              </div>
+              <div class="hidden-xs col-sm-2">
+                  <p style="padding:20px;"></p>
+                  <img src="images/logo.png" class="img-responsive">
+              </div>
+          </div>
+      </div>
+    </header>
+
+    <div class="container">
+      
+      <div class="row row-content">
+        <div class="col-xs-12 col-sm-12">
+          <div class="col-xs-8 col-xs-offset-2 col-sm-3 col-sm-offset-0 img-xs-margin-bottom">
+            <img class="img-responsive"
+            src="images/post1.jpg" alt="Uthappizza">
+          </div>
+          <div class="col-xs-12 col-sm-9">
+            <h2 class="media-heading">10/10/2010 Post bla bla <span class="label label-danger">NOVO</span></h2>
+            <p>Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+                bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+                bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+                  bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+                  bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-content">
+        <div class="col-xs-12 col-sm-12">
+          <div class="col-xs-8 col-xs-offset-2 col-sm-3 col-sm-offset-0 img-xs-margin-bottom">
+            <img class="img-responsive"
+            src="images/post2.jpg" alt="Uthappizza">
+          </div>
+          <div class="col-xs-12 col-sm-9">
+            <h2 class="media-heading">09/10/2010 Post bla bla</h2>
+            <p>Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+                bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+                bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+                  bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+                  bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+            </p>
+          </div>
+        </div>
+      </div>
+      
     </div>
-    <div class="linksColumn">
-      <h2>What's Next?</h2>
-      <ul>
-        <!--<li><a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/Welcome.html">AWS Elastic Beanstalk overview</a></li>
-        <li><a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.html">AWS Elastic Beanstalk concepts</a></li>
-        <li><a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_nodejs_express.html">Deploy an Express Application to AWS Elastic Beanstalk</a></li>
-        <li><a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_nodejs_express_elasticache.html">Deploy an Express Application with Amazon ElastiCache to AWS Elastic Beanstalk</a></li>
-        <li><a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_nodejs_geddy_elasticache.html">Deploy a Geddy Application with Amazon ElastiCache to AWS Elastic Beanstalk </a></li>
-        <li><a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_nodejs_custom_container.html">Customizing and Configuring a Node.js Container </a></li>
-        <li><a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.loggingS3.title.html">Working with Logs</a></li>-->
-      </ul>
-    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="/js/index.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-77426747-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script>
+      $(document).ready(function(){
+          initialize();
+      });      
+    </script>    
   </body>
 </html>
