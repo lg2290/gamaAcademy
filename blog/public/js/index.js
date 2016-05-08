@@ -7,7 +7,7 @@ var leadModule = (function(){
             date: leadTime
         }
         ajaxModule.postAjaxCall(lead, 'lead', function(data){
-            $("body").append("<iframe src='" + "http://localhost:3000/" + data + "' style='display: none;' ></iframe>")
+            $("body").append("<iframe src='" + data + "' style='display: none;' ></iframe>")
         });
     }
     
@@ -17,15 +17,13 @@ var leadModule = (function(){
 })();
 
 var ajaxModule = (function(){
-    var serverUrl = 'http://localhost:3000/'
-    
     function ajaxCall(type, data, endPoint, successCb){
         console.log(JSON.stringify(data));
         $.ajax({
             type: type,
             data: JSON.stringify(data),
             contentType: 'application/json',
-            url: serverUrl + endPoint,						
+            url: endPoint,						
             success: function(data){
                 successCb(data);
             }
@@ -46,12 +44,29 @@ var ajaxModule = (function(){
     }
 })();
 
+var validationModule = (function(){
+    function validateEmail(email) {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    }
+
+    return {
+        validateEmail: validateEmail
+    }
+})()
+
 function initialize(){
     $('#leadBtn').click(function(){
         var leadEmail = $('#leadEmail').val();
         var leadName = $('#leadName').val();
-        console.log(leadEmail);
-        console.log(leadName);
-        leadModule.saveLead(leadEmail, leadName);
+        if(validationModule.validateEmail(leadEmail)){
+            leadModule.saveLead(leadEmail, leadName);            
+        }
+        else{
+            $(this).popover('show');
+            setTimeout(function(){
+                $('#leadBtn').popover('hide');
+            }, 5000);
+        }
     })
 }

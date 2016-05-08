@@ -14,7 +14,18 @@ var fn = (function(){
         });
     }
     
+    function getAllLeads(callback) {
+        var leads = []; 
+        Lead.find(function (err, results) {
+            if(err)
+                callback(err, null);
+            else
+                callback(null, results);                
+        });
+    }
+    
     return{
+        getAllLeads: getAllLeads,
         saveLead: saveLead
     }
 })()
