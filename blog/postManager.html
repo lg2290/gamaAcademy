@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vida de Produtor</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/index.css">
+  </head>
+  <body>
+    <div class="container">
+    <div class="form-group">
+			<label class="sr-only" for="title">Post Title</label>
+			<input class="form-control" id="postTitle" placeholder="Título" type="text"/>
+    </div>
+    <div class="form-group">
+			<label class="sr-only" for="name">Post Body</label>
+			<textarea class="form-control" id="postBody" placeholder="Corpo" rows="5" type="text"/>
+    </div>
+    <div class="form-group">
+			<label class="sr-only" for="title">Post Image</label>
+			<input class="form-control" id="postImage" placeholder="Imagem (URL)" type="text"/>
+    </div>
+
+    <button class="btn btn-info" data-toggle="popover" data-placement="bottom" data-content="Por favor, preencha pelo menos o Título e o corpo do post." id="postBtn">Download</button>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="/js/postManager.js"></script>
+		<script>
+      $(document).ready(function(){
+          initialize();
+      });      
+    </script>  
+  </body>
+</html>

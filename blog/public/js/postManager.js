@@ -1,26 +1,27 @@
-var leadModule = (function(){
-    function saveLead(leadEmail, leadName){
+var postModule = (function(){
+    function savePost(leadEmail, leadName){
         var leadTime = new Date().toLocaleString();
         var lead = {
             email: leadEmail,
             name: leadName,
             date: leadTime
         }
-        ajaxModule.postAjaxCall(lead, 'lead', function(data){
+        ajaxModule.postAjaxCall(lead, 'post', function(data){
             $("body").append("<iframe src='" + data + "' style='display: none;' ></iframe>")
         });
     }
     
     function validateAndSaveLead(sufix){
-        var leadEmail = $('#leadEmail'+sufix).val();
-        var leadName = $('#leadName'+sufix).val();
-        if(validationModule.validateEmail(leadEmail)){
-            saveLead(leadEmail, leadName);            
+        var postTitle = $('#postTitle'+sufix).val();
+        var postBody = $('#postBody'+sufix).val();
+        var postImage = $('#postImage'+sufix).val();
+        if(validationModule.validateFields(postTitle, postBody)){
+            savePost(postTitle, postBody, postImage);            
         }
         else{
-            $('#leadBtn'+sufix).popover('show');
+            $('#postBtn').popover('show');
             setTimeout(function(){
-                $('#leadBtn'+sufix).popover('hide');
+                $('#postBtn').popover('hide');
             }, 5000);
         }
     }
@@ -59,21 +60,19 @@ var ajaxModule = (function(){
 })();
 
 var validationModule = (function(){
-    function validateEmail(email) {
-        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(email);
+    function validateFields(title, body) {
+        if(titlle)
+            if(body)
+                return true;
+        return false;
     }
 
     return {
-        validateEmail: validateEmail
+        validateFields: validateFields
     }
 })();
-
 function initialize(){
-    $('#leadBtnTop').click(function(){
+    $('#postBtn').click(function(){
         leadModule.validateAndSaveLead('Top')
-    });
-        $('#leadBtnBottom').click(function(){
-        leadModule.validateAndSaveLead('Bottom')
     });
 }
