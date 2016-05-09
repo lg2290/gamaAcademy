@@ -1,20 +1,19 @@
 var postModule = (function(){
-    function savePost(leadEmail, leadName){
-        var leadTime = new Date().toLocaleString();
-        var lead = {
-            email: leadEmail,
-            name: leadName,
-            date: leadTime
+    function savePost(postTitle, postBody, postImage){
+        var post = {
+            title: postTitle,
+            body: postBody,
+            image: postImage
         }
-        ajaxModule.postAjaxCall(lead, 'post', function(data){
-            $("body").append("<iframe src='" + data + "' style='display: none;' ></iframe>")
+        ajaxModule.postAjaxCall(post, 'post', function(data){
+            console.log('ok');
         });
     }
     
-    function validateAndSaveLead(sufix){
-        var postTitle = $('#postTitle'+sufix).val();
-        var postBody = $('#postBody'+sufix).val();
-        var postImage = $('#postImage'+sufix).val();
+    function validateAndSaveLead(){
+        var postTitle = $('#postTitle').val();
+        var postBody = $('#postBody').val();
+        var postImage = $('#postImage').val();
         if(validationModule.validateFields(postTitle, postBody)){
             savePost(postTitle, postBody, postImage);            
         }
@@ -61,9 +60,11 @@ var ajaxModule = (function(){
 
 var validationModule = (function(){
     function validateFields(title, body) {
-        if(titlle)
-            if(body)
+        if(title){
+            if(body){
                 return true;
+            }            
+        }
         return false;
     }
 
@@ -71,8 +72,9 @@ var validationModule = (function(){
         validateFields: validateFields
     }
 })();
+
 function initialize(){
     $('#postBtn').click(function(){
-        leadModule.validateAndSaveLead('Top')
+        postModule.validateAndSaveLead()
     });
 }

@@ -69,6 +69,64 @@ var validationModule = (function(){
     }
 })();
 
+var postModule = (function(){
+    function getPosts(){
+        ajaxModule.getAjaxCall({}, 'post', function(data){
+            var postsHtml = postModule.getPostsHtml(data);
+            $("#postsContainer").append(postsHtml);
+        });
+    }
+    
+    function getPostsHtml(posts){
+        var postsHtml = '';
+        $.each(posts, function(index, post){
+            postsHtml += getPostHtml(post);
+        });
+        return postsHtml;
+    }
+    
+    function getPostHtml(post){
+        var postHtml = '<div class="row row-content"><div class="col-sm-12 col-md-12">';
+        postHtml += getPostImageHtlm(post.image);
+        postHtml += getPostTitleHtlm(post.title);
+        postHtml += getPostBodyHtlm(post.body);
+        postHtml += '</div></div>';
+        
+        return postHtml;
+    }
+    
+    function getPostImageHtlm(imageUrl){
+        var postImgHtml = '<div class="col-sm-8 col-sm-offset-2 col-md-3 col-md-offset-0 img-sm-margin-bottom">';
+        if(imageUrl){
+            postImgHtml += '<img class="img-responsive" src="' + imageUrl + '">'
+        }
+        postImgHtml += '</div>';
+        
+        return postImgHtml;
+    }
+    
+    function getPostTitleHtlm(title){
+        var postTitleHtml = '<div class="col-sm-12 col-md-9"><h2 class="media-heading">';
+        postTitleHtml += title;
+        postTitleHtml += '</h2>';
+        
+        return postTitleHtml;
+    }
+    
+    function getPostBodyHtlm(body){
+        var postBodyHtml = '<p>';
+        postBodyHtml += body;
+        postBodyHtml += '</p></div>';
+        
+        return postBodyHtml;
+    }
+    
+    return{
+        getPosts: getPosts,
+        getPostsHtml: getPostsHtml
+    }
+})()
+
 function initialize(){
     $('#leadBtnTop').click(function(){
         leadModule.validateAndSaveLead('Top')
@@ -76,4 +134,6 @@ function initialize(){
         $('#leadBtnBottom').click(function(){
         leadModule.validateAndSaveLead('Bottom')
     });
+    
+    postModule.getPosts();
 }

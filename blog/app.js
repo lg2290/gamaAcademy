@@ -47,6 +47,25 @@ app.get('/leadsCounter', function(req, res){
     res.sendFile(path.join(__dirname + '/leadsCounter.html'));
 });
 
+app.get('/postManager', function(req, res){
+    res.sendFile(path.join(__dirname + '/postManager.html'));
+});
+
+app.post('/post', function(req, res){
+    dataSource.savePost(req.body);
+    res.send('ok');
+});
+
+app.get('/post', function(req, res){
+    dataSource.getAllPosts(function(err, posts){
+        if(err)
+            console.log(err);
+        else
+            res.send(posts);    
+    });
+});
+
+
 /*db connect */
 mongoose.connect('mongodb://bloguser:gamablog@ds017672.mlab.com:17672/gamablog', function (err, db) {
     if (err) {
