@@ -11,8 +11,22 @@ var leadModule = (function(){
         });
     }
     
+    function validateAndSaveLead(sufix){
+        var leadEmail = $('#leadEmail'+sufix).val();
+        var leadName = $('#leadName'+sufix).val();
+        if(validationModule.validateEmail(leadEmail)){
+            saveLead(leadEmail, leadName);            
+        }
+        else{
+            $('#leadBtn'+sufix).popover('show');
+            setTimeout(function(){
+                $('#leadBtn'+sufix).popover('hide');
+            }, 5000);
+        }
+    }
+    
     return{
-        saveLead: saveLead
+        validateAndSaveLead: validateAndSaveLead
     }
 })();
 
@@ -56,17 +70,10 @@ var validationModule = (function(){
 })()
 
 function initialize(){
-    $('#leadBtn').click(function(){
-        var leadEmail = $('#leadEmail').val();
-        var leadName = $('#leadName').val();
-        if(validationModule.validateEmail(leadEmail)){
-            leadModule.saveLead(leadEmail, leadName);            
-        }
-        else{
-            $(this).popover('show');
-            setTimeout(function(){
-                $('#leadBtn').popover('hide');
-            }, 5000);
-        }
+    $('#leadBtnTop').click(function(){
+        leadModule.validateAndSaveLead('Top')
+    });
+        $('#leadBtnBottom').click(function(){
+        leadModule.validateAndSaveLead('Bottom')
     })
 }
