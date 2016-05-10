@@ -19,9 +19,11 @@
 .jumbotron {
     background-image: url("../images/header.jpg");
     background-size: cover;
-    /*padding:70px 30px 70px 30px;*/
-    margin:0px auto;
     color:floralwhite;
+    padding-top: 0;
+    margin:0px auto;
+    height: 40vh;
+    position: relative;
 }
 
 address{
@@ -31,12 +33,13 @@ address{
 }
 
 body{
+    background-color: rgba(102, 46, 145, 1.0);
     padding:50px 0px 0px 0px;
     z-index:0;
 }
 
 .navbar-inverse {
-     background: rgba(0, 0, 0, 0.9);
+     background: rgba(102, 46, 145, 1.0);
 }
 
 .navbar-inverse .navbar-nav > .active > a,
@@ -73,5 +76,174 @@ body{
 }
 
 .footer{
-    background-color: #AfAfAf;
+    background-color: rgba(0,0,0,0.0);
+}
+
+.body-container{
+    background-color: rgba(255,255,255,1.0);
+}
+
+.banner{
+    background-color: rgba(235,235,235,1.0);
+    color: rgba(102, 46, 145, 1.0);
+    font-weight: bold;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.post h2{
+    color: rgba(102, 46, 145, 1.0);
+}
+
+.loader{
+    background-color: rgba(255,255,255,0.9);
+    display: none;
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 2000;
+}
+
+.loader .gifContainer{
+    height: 20vh;
+    margin-left: 40vw;
+    margin-top: 30vh;
+    position: absolute;
+    text-align: center;
+    width: 20vw;
+}
+.imgHelper{
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.loader .textContainer{
+    height: 10vh;
+    margin-top: 50vh;
+    position: absolute;
+    text-align: center;
+    width: 100vw;    
+}
+
+.loader .textContainer h2{
+    color: rgba(148,26,148,1.0);
+}
+
+.jumbotron .logo-container{
+    background-color: rgba(255,255,255,1.0);
+    display: block;    
+    height: 10vh;
+    width: 100vw;
+}
+
+.logo-img-container{
+    display: block;
+    height: 10vh;
+    margin-left: 30vw;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+    text-align: center;
+    width: 40vw;
+}
+
+.img-responsive{
+    display: inline-block;
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+}
+
+.btn-body { 
+  color: #ffffff; 
+  background-color: #662E91; 
+  border-color: #B084D1; 
+} 
+ 
+.btn-body:hover, 
+.btn-body:focus, 
+.btn-body:active, 
+.btn-body.active, 
+.open .dropdown-toggle.btn-body { 
+  color: #ffffff; 
+  background-color: #531185; 
+  border-color: #B084D1; 
+} 
+ 
+.btn-body:active, 
+.btn-body.active, 
+.open .dropdown-toggle.btn-body { 
+  background-image: none; 
+} 
+ 
+.btn-body.disabled, 
+.btn-body[disabled], 
+fieldset[disabled] .btn-body, 
+.btn-body.disabled:hover, 
+.btn-body[disabled]:hover, 
+fieldset[disabled] .btn-body:hover, 
+.btn-body.disabled:focus, 
+.btn-body[disabled]:focus, 
+fieldset[disabled] .btn-body:focus, 
+.btn-body.disabled:active, 
+.btn-body[disabled]:active, 
+fieldset[disabled] .btn-body:active, 
+.btn-body.disabled.active, 
+.btn-body[disabled].active, 
+fieldset[disabled] .btn-body.active { 
+  background-color: #662E91; 
+  border-color: #B084D1; 
+} 
+ 
+.btn-body .badge { 
+  color: #662E91; 
+  background-color: #ffffff; 
+}
+
+.btn-header { 
+  color: #ffffff; 
+  background-color: #662E91; 
+  border-color: #FAFAFA; 
+} 
+ 
+.btn-header:hover, 
+.btn-header:focus, 
+.btn-header:active, 
+.btn-header.active, 
+.open .dropdown-toggle.btn-header { 
+  color: #ffffff; 
+  background-color: #531185; 
+  border-color: #FAFAFA; 
+} 
+ 
+.btn-header:active, 
+.btn-header.active, 
+.open .dropdown-toggle.btn-header { 
+  background-image: none; 
+} 
+ 
+.btn-header.disabled, 
+.btn-header[disabled], 
+fieldset[disabled] .btn-header, 
+.btn-header.disabled:hover, 
+.btn-header[disabled]:hover, 
+fieldset[disabled] .btn-header:hover, 
+.btn-header.disabled:focus, 
+.btn-header[disabled]:focus, 
+fieldset[disabled] .btn-header:focus, 
+.btn-header.disabled:active, 
+.btn-header[disabled]:active, 
+fieldset[disabled] .btn-header:active, 
+.btn-header.disabled.active, 
+.btn-header[disabled].active, 
+fieldset[disabled] .btn-header.active { 
+  background-color: #662E91; 
+  border-color: #FAFAFA; 
+} 
+ 
+.btn-header .badge { 
+  color: #662E91; 
+  background-color: #ffffff; 
 }

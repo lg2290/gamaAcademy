@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Vida de Produtor</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,132 +8,126 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/css/index.css">
-  </head>
-  <body>
+</head>
+<body>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+        <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed btn-info" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <button type="button" class="navbar-toggle collapsed btn-header" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
-                    Obter Ebook!
+                    Quero Mais Dicas!!!
                 </button>
-                <a class="navbar-brand" href="#"><img src="images/logo.png" height=30 width=30></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-                <div class="navbar-form navbar-center">
-                  <div class="form-group ebookMessage col-md-4">
-                    Faça o download do nosso ebook com dicas exclusivas!
-                  </div>
-									<div class="">
-										<div class="form-group">
-												<label class="sr-only" for="email">Email address</label>
-												<input class="form-control" id="leadEmailTop" placeholder="Email" type="email"/>
-										</div>
-										<div class="form-group">
-												<label class="sr-only" for="name">Name</label>
-												<input class="form-control" id="leadNameTop" placeholder="Nome" type="text"/>
-										</div>
-										<button class="btn btn-info" data-toggle="popover" data-placement="bottom" data-content="Por favor, adicione um email válido. Prometemos não te bombardear com emails chatos!" id="leadBtnTop">Download</button>										
-									</div>
+                <div class="navbar-form navbar-right">
+                    <div class="form-group ebookMessage">
+                        <h4>Quero mais Dicas!!!</h4>
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="email">Email address</label>
+                        <input class="form-control" id="leadEmailTop" placeholder="Email" type="email"/>
+                    </div>
+                    <div class="form-group hidden">
+                        <label class="sr-only" for="email">Name</label>
+                        <input class="form-control" id="leadNameTop" placeholder="Nome" type="text" value="Top Register"/>
+                    </div>
+                    <button class="btn btn-header" data-toggle="popover" data-placement="bottom" data-content="Por favor, adicione um email válido. Prometemos não te bombardear com emails chatos!" id="leadBtnTop">Cadastrar</button>										
                 </div>
             </div>
         </div>
     </nav>
     <header class="jumbotron">
-      <div class="container">
-          <div class="row row-header">
-              <div class="col-sm-12 col-md-8">
-                  <h1>Vida de Produtor</h1>
-                  <p style="padding:40px;"></p>
-                  <!--<p>Bla bla bla bla bla bla bla</p>-->
-              </div>
-              <div class="hidden-sm col-md-2">
-                  <p style="padding:20px;"></p>
-                  <img src="images/logo.png" class="img-responsive">
-              </div>
-          </div>
+      <div class="logo-container">
+          <div class="logo-img-container">
+              <span class="imgHelper"></span><img class="img-responsive" src="images/logo.png"/>
+          </div>          
       </div>
     </header>
 
-    <div class="container" id="postsContainer">
-      
-      <!--<div class="row row-content">
-        <div class="col-sm-12 col-md-12">
-          <div class="col-sm-8 col-sm-offset-2 col-md-3 col-md-offset-0 img-sm-margin-bottom">
-            <img class="img-responsive"
-            src="images/post1.jpg" alt="post2">
-          </div>
-          <div class="col-sm-12 col-md-9">
-            <h2 class="media-heading">10/10/2010 Post bla bla <span class="label label-danger">NOVO</span></h2>
-            <p>Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-                bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-                bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-                  bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-                  bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-            </p>
-          </div>
+    <div class="container-fluid body-container" id="bodyContainer">
+        <div class="col-sm-12 col-md-9" id="postsContainer">
+            
         </div>
-      </div>
-
-      <div class="row row-content">
-        <div class="col-sm-12 col-md-12">
-          <div class="col-sm-8 col-sm-offset-2 col-md-3 col-md-offset-0 img-sm-margin-bottom">
-            <img class="img-responsive"
-            src="images/post2.jpg" alt="post1">
-          </div>
-          <div class="col-sm-12 col-md-9">
-            <h2 class="media-heading">09/10/2010 Post bla bla</h2>
-            <p>Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-                bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-                bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-                  bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-                  bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-            </p>
-          </div>
+        
+        <div class="col-md-3 hidden-sm" id="sideBannerContainer">
+            <div class="row row-content">
+                <div class="col-md-12 banner">
+                    <div class="col-md-12">
+                        <h2 class="text-center">Junho está chegando, que tal fazer a sua festa junina 
+                            bombar? Baixe o nosso ebook e veja as dicas pro seu 
+                            arraial entrar para a história!</h2>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label class="sr-only" for="email">Email address</label>
+                        <input class="form-control" id="leadEmailJunSide" placeholder="Email" type="email"/>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label class="sr-only" for="name">Name</label>
+                        <input class="form-control" id="leadNameJunSide" placeholder="Nome" type="text"/>
+                    </div>
+                    <button class="btn btn-body col-md-12" data-toggle="popover" data-placement="bottom" data-content="Por favor, adicione um email válido. Prometemos não te bombardear com emails chatos!" id="leadBtnJunSide">Download</button>										
+                </div>
+            </div>
         </div>
-      </div>-->
-      
+                
+        <div class="col-sm-12 col-md-9">            
+            <div class="row row-content">
+                <div class="col-md-12 banner">
+                    <div class="col-md-12">
+                        <h3 class="text-center">
+                            Quer organizar um evento, mas está com medo de sair no vermelho? Aproveite nosso Ebook
+                            <b>"5 Truques para um Evento sem Chances de Prejuízo"</b> para te ajudar a sair com clientes
+                            satisfeitos, e o bolso cheio!
+                        </h3>
+                    </div>
+                    <div class="form-group col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+                        <label class="sr-only" for="email">Email address</label>
+                        <input class="form-control" id="leadEmail5Body" placeholder="Email" type="email"/>
+                    </div>
+                    <div class="form-group col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+                        <label class="sr-only" for="name">Name</label>
+                        <input class="form-control" id="leadName5Body" placeholder="Nome" type="text"/>
+                    </div>
+                    <button class="btn btn-body col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2" data-toggle="popover" data-placement="bottom" data-content="Por favor, adicione um email válido. Prometemos não te bombardear com emails chatos!" id="leadBtn5Body">EU QUERO!</button>
+                </div>
+            </div>
+        </div>
+        
     </div>
-		<footer class="footer">
-			<div class="container">
-				<div class="row row-footer">
-					<div class="col-sm-12 col-sm-offset-0 col-md-8 col-md-offset-2 text-center">
-						<h2>Gostou do nosso conteúdo? Aproveite muito mais fazendo o download do nosso Ebook!
-							Basta colocar seu nome e email abaixo, e pronto! Gratuito, e garantimos que que não vamos ficar
-							te enviando emails chatos depois... Aproveite!!
-						</h2>
-					</div>
-					<div class="col-sm-12 col-sm-offset-0 col-md-10 col-md-offset-1">
-						<div class="form-group">
-							<label class="sr-only" for="email">Email address</label>
-							<input class="form-control" id="leadEmailBottom" placeholder="Email" type="email"/>
-						</div>
-						<div class="form-group">
-							<label class="sr-only" for="name">Name</label>
-							<input class="form-control" id="leadNameBottom" placeholder="Nome" type="text"/>
-						</div>
-						<button class="btn btn-info" data-toggle="popover" data-placement="top" data-content="Por favor, adicione um email válido. Prometemos não te bombardear com emails chatos!" id="leadBtnBottom">Download</button>
-					</div>
-				</div>
-			</div>
-		</footer>
+    
+
+    
+    <footer class="footer">
+        <div class="container-fluid">
+            <h3></h3>
+        </div>
+    </footer>
+    
+    <div class="loader" id="loader">
+        <div class="gifContainer">
+            <span class="imgHelper"></span><img src="images/loader.gif"/>
+        </div>
+        <div class="textContainer text-center">
+            <h2>carregando</h2>
+        </div>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="/js/index.js"></script>
     <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-77426747-1', 'auto');
-      ga('send', 'pageview');
+        ga('create', 'UA-77426747-1', 'auto');
+        ga('send', 'pageview');
     </script>
     <script>
-      $(document).ready(function(){
-          initialize();
-      });      
+        $(document).ready(function(){
+            initialize();
+        });      
     </script>    
   </body>
 </html>

@@ -6,7 +6,8 @@ var mongoose = require('mongoose');
 var path = require('path');
 
 /*global variables */
-var fileUrl = 'fileLinkURL-asdaffkhnlvmemtksnsknvs';
+var fileUrl1 = 'fileLinkURL-asdaffkhnlvmemtksnsknvs';
+var fileUrl2 = 'fileLinkURL-otklfmgnmsdlkalkflkhgdf';
 
 /*app config*/
 var app = express();
@@ -26,12 +27,32 @@ app.get('/', function(req, res){
 console.log('Server running at http://127.0.0.1:' + '3000' + '/');
 
 app.post('/lead', function(req, res){
+    var hasEbook = false, 
+        fileUrl = '';
+        
     dataSource.saveLead(req.body);
-    res.send(fileUrl);
+    
+    if(req.body.ebook == 1){
+        fileUrl = fileUrl1;
+        hasEbook = true;        
+    }
+    else if(req.body.ebook == 2)
+    {
+        fileUrl = fileUrl2;
+        hasEbook = true;        
+    }
+    res.send({
+        "hasEbook": hasEbook,
+        "fileUrl": fileUrl
+    });
 });
 
-app.get('/' + fileUrl, function(req, res){
+app.get('/' + fileUrl1, function(req, res){
 	res.download(path.join(__dirname + '/files/ebook_5_truques_para_um_evento_sem chances_de_prejuizo.pdf'));
+});
+
+app.get('/' + fileUrl2, function(req, res){
+	res.download(path.join(__dirname + '/files/ebook_festa_junina.pdf'));
 });
 
 app.get('/allLeads', function(req, res){

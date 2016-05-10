@@ -7,9 +7,25 @@ var fn = (function(){
         Lead.find(function (err, results) {
             if(err)
                 callback(err, null);
-            else
-                callback(null, results);                
+            else{
+                var filteredResults = filterLeadsByEmail(results);
+                callback(null, filteredResults);                
+            }
         });
+    }
+    
+    function filterLeadsByEmail(leads) {
+        var filtered = [];
+        var keys = [];
+        leads.forEach(function(lead){
+            var email = lead.email;
+            if(!(email in keys) && (email != 'test@test.com')){
+                keys[email] = true;
+                filtered.push(lead);
+            }
+        })
+        
+        return filtered;
     }
 
     function getAllPosts(callback) {
@@ -29,8 +45,12 @@ var fn = (function(){
         });
         
         lead.save(function(err) {
-            if (err) throw err;
-            console.log('Lead saved successfully!');
+            if (err){
+                console.log(err);
+                console.log(lead);
+            }
+            else
+                console.log('Lead saved successfully!');
         });
     }
 
@@ -42,10 +62,14 @@ var fn = (function(){
         });
         
         post.save(function(err) {
-            if (err) throw err;
-            console.log('Post saved successfully!');
+            if (err){
+                console.log(err);
+                console.log(post);
+            }
+            else
+                console.log('Post saved successfully!');
         });
-    }    
+    }
     
     return{
         getAllLeads: getAllLeads,

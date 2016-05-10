@@ -1,26 +1,32 @@
 var leadModule = (function(){
-    function saveLead(leadEmail, leadName){
+    function saveLead(leadEmail, leadName, sufix, ebookType){
         var leadTime = new Date().toLocaleString();
         var lead = {
             email: leadEmail,
             name: leadName,
-            date: leadTime
+            date: leadTime,
+            ebook: ebookType
         }
         ajaxModule.postAjaxCall(lead, 'lead', function(data){
-            $("body").append("<iframe src='" + data + "' style='display: none;' ></iframe>")
+            inputFieldModule.clearFiels(sufix);
+            loaderModule.hide();
+            
+            if(data.hasEbook)
+                $("body").append("<iframe src='" + data.fileUrl + "' style='display: none;' ></iframe>")
         });
     }
     
-    function validateAndSaveLead(sufix){
+    function validateAndSaveLead(sufix, ebookType){       
         var leadEmail = $('#leadEmail'+sufix).val();
         var leadName = $('#leadName'+sufix).val();
         if(validationModule.validateEmail(leadEmail)){
-            saveLead(leadEmail, leadName);            
+            loaderModule.show();
+            saveLead(leadEmail, leadName, sufix, ebookType);
         }
         else{
-            $('#leadBtn'+sufix).popover('show');
+            buttonModule.showPopover(sufix);
             setTimeout(function(){
-                $('#leadBtn'+sufix).popover('hide');
+                buttonModule.hidePopover(sufix);
             }, 5000);
         }
     }
@@ -72,8 +78,9 @@ var validationModule = (function(){
 var postModule = (function(){
     function getPosts(){
         ajaxModule.getAjaxCall({}, 'post', function(data){
-            var postsHtml = postModule.getPostsHtml(data);
+            var postsHtml = postModule.getPostsHtml(data.reverse());
             $("#postsContainer").append(postsHtml);
+            loaderModule.hide();
         });
     }
     
@@ -86,7 +93,7 @@ var postModule = (function(){
     }
     
     function getPostHtml(post){
-        var postHtml = '<div class="row row-content"><div class="col-sm-12 col-md-12">';
+        var postHtml = '<div class="row row-content post"><div class="col-sm-12 col-md-12">';
         postHtml += getPostImageHtlm(post.image);
         postHtml += getPostTitleHtlm(post.title);
         postHtml += getPostBodyHtlm(post.body);
@@ -127,13 +134,64 @@ var postModule = (function(){
     }
 })()
 
+var loaderModule = (function(){
+    var loader = $('#loader');
+    
+    function hide(){
+        loader.hide('slow');
+    }
+    
+    function show(){
+        loader.show();
+    }
+    
+    return{
+        hide: hide,
+        show: show
+    }
+})();
+
+var inputFieldModule = (function(){
+    
+    function clearFiels(sufix){
+        $('#leadEmail'+sufix).val('');
+        if(sufix != 'Top')
+            $('#leadName'+sufix).val('');
+    }
+    
+    return {
+        clearFiels: clearFiels
+    }
+})();
+
+var buttonModule = (function(){
+    function hidePopover(sufix){
+        $('#leadBtn'+sufix).popover('hide');
+    }
+    
+    function setClick(sufix, ebookType){
+        $('#leadBtn'+sufix).click(function(){
+            leadModule.validateAndSaveLead(sufix, ebookType);
+        });
+    }
+    
+    function showPopover(sufix){
+        $('#leadBtn'+sufix).popover('show');
+    }
+    
+    return {
+        hidePopover: hidePopover,
+        setClick: setClick,
+        showPopover: showPopover
+    }
+})();
+
 function initialize(){
-    $('#leadBtnTop').click(function(){
-        leadModule.validateAndSaveLead('Top')
-    });
-        $('#leadBtnBottom').click(function(){
-        leadModule.validateAndSaveLead('Bottom')
-    });
+    loaderModule.show();
+    
+    buttonModule.setClick('Top', 0);
+    buttonModule.setClick('5Body', 1);
+    buttonModule.setClick('JunSide', 1);
     
     postModule.getPosts();
 }
