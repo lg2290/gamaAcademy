@@ -191,7 +191,7 @@ function initialize(){
     
     buttonModule.setClick('Top', 0);
     buttonModule.setClick('5Body', 1);
-    buttonModule.setClick('JunSide', 1);
+    buttonModule.setClick('JunSide', 2);
     
     postModule.getPosts();
 }

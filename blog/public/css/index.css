@@ -34,7 +34,7 @@ address{
 
 body{
     background-color: rgba(102, 46, 145, 1.0);
-    padding:50px 0px 0px 0px;
+    padding:72px 0px 0px 0px;
     z-index:0;
 }
 
@@ -70,6 +70,17 @@ body{
     color: whitesmoke;
     font-weight: bold;
 }
+.ebookMessage h3{
+    margin-top: 10px;    
+}
+
+.navbar-form input{
+    font-size: 24px;
+    height: 36px;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
 
 .img-xs-margin-bottom{
     margin-bottom: 10px;
@@ -84,8 +95,8 @@ body{
 }
 
 .banner{
-    background-color: rgba(235,235,235,1.0);
-    color: rgba(102, 46, 145, 1.0);
+    background-color: rgba(102,44,146,1.0);
+    color: rgba(255, 255, 255, 1.0);
     font-weight: bold;
     padding-bottom: 20px;
     padding-top: 20px;
@@ -145,8 +156,11 @@ body{
     margin-left: 30vw;
     padding-top: 0.5vw;
     padding-bottom: 0.5vw;
-    text-align: center;
     width: 40vw;
+}
+
+.img-resp-container{
+    text-align: center;    
 }
 
 .img-responsive{
@@ -156,10 +170,14 @@ body{
     width: auto;
 }
 
+img-side-banner-cont{
+    width: 100%;
+}
+
 .btn-body { 
-  color: #ffffff; 
-  background-color: #662E91; 
-  border-color: #B084D1; 
+  color: #FFFFFF; 
+  background-color: #FFC301; 
+  border-color: #E8B50C; 
 } 
  
 .btn-body:hover, 
@@ -167,9 +185,9 @@ body{
 .btn-body:active, 
 .btn-body.active, 
 .open .dropdown-toggle.btn-body { 
-  color: #ffffff; 
-  background-color: #531185; 
-  border-color: #B084D1; 
+  color: #FFFFFF; 
+  background-color: #E8B200; 
+  border-color: #E8B50C; 
 } 
  
 .btn-body:active, 
@@ -193,13 +211,13 @@ fieldset[disabled] .btn-body:active,
 .btn-body.disabled.active, 
 .btn-body[disabled].active, 
 fieldset[disabled] .btn-body.active { 
-  background-color: #662E91; 
-  border-color: #B084D1; 
+  background-color: #FFC301; 
+  border-color: #E8B50C; 
 } 
  
 .btn-body .badge { 
-  color: #662E91; 
-  background-color: #ffffff; 
+  color: #FFC301; 
+  background-color: #FFFFFF; 
 }
 
 .btn-header { 
