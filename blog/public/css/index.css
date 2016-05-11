@@ -170,8 +170,12 @@ body{
     width: auto;
 }
 
-img-side-banner-cont{
+.img-side-banner-cont{
     width: 100%;
+}
+
+.video-container{
+    min-height: 30vh;
 }
 
 .btn-body { 
