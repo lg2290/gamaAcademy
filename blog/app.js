@@ -48,7 +48,7 @@ app.post('/lead', function(req, res){
 });
 
 app.get('/' + fileUrl1, function(req, res){
-	res.download(path.join(__dirname + '/files/ebook_5_truques_para_um_evento_sem chances_de_prejuizo.pdf'));
+	res.download(path.join(__dirname + '/files/ebook_curso_basico.pdf'));
 });
 
 app.get('/' + fileUrl2, function(req, res){

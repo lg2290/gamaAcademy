@@ -17,7 +17,8 @@
 }
 
 .jumbotron {
-    background-image: url("../images/header.jpg");
+    /*background-image: url("../images/header.jpg");*/
+    background-color: rgba(102, 46, 147, 1.0);
     background-size: cover;
     color:floralwhite;
     padding-top: 0;
@@ -98,8 +99,12 @@ body{
     background-color: rgba(102,44,146,1.0);
     color: rgba(255, 255, 255, 1.0);
     font-weight: bold;
-    padding-bottom: 20px;
-    padding-top: 20px;
+    padding-bottom: 30px;
+    padding-top: 2  0px;
+}
+
+.banner-body{
+    margin-bottom: 10px;
 }
 
 .post h2{
@@ -150,6 +155,12 @@ body{
     width: 100vw;
 }
 
+.jumbotron .header-banner-container{
+    display: block;    
+    height: 30vh;
+    width: 100vw;
+}
+
 .logo-img-container{
     display: block;
     height: 10vh;
@@ -176,6 +187,12 @@ body{
 
 .video-container{
     min-height: 30vh;
+}
+
+.text-link{
+    color: #531185;
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 .btn-body { 
