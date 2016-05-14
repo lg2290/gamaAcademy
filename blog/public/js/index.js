@@ -1,3 +1,76 @@
+var ajaxModule = (function(){
+    function ajaxCall(type, data, endPoint, successCb){
+        console.log(JSON.stringify(data));
+        $.ajax({
+            type: type,
+            data: JSON.stringify(data),
+            contentType: 'application/json',
+            url: endPoint,						
+            success: function(data){
+                successCb(data);
+            }
+        });
+    }
+
+    function getAjaxCall(data, endPoint, successCb){
+        ajaxCall('GET', data, endPoint, successCb);    
+    }
+
+    function postAjaxCall(data, endPoint, successCb){
+        ajaxCall('POST', data, endPoint, successCb);
+    }
+    
+    return {
+        getAjaxCall: getAjaxCall,
+        postAjaxCall: postAjaxCall
+    }
+})();
+
+var buttonModule = (function(){
+    function hidePopover(sufix){
+        $('#leadBtn'+sufix).popover('hide');
+    }
+    
+    function setClick(sufix, ebookType){
+        $('#leadBtn'+sufix).click(function(){
+            leadModule.validateAndSaveLead(sufix, ebookType);
+        });
+    }
+    
+    function setClickCollapse(){
+        $('.row .btn').on('click', function(e) {
+            e.preventDefault();
+            var $this = $(this);
+            var $collapse = $this.closest('.collapse-group').find('.collapse');
+            $collapse.collapse('toggle');
+        });        
+    }
+    
+    function showPopover(sufix){
+        $('#leadBtn'+sufix).popover('show');
+    }
+    
+    return {
+        hidePopover: hidePopover,
+        setClick: setClick,
+        setClickCollapse: setClickCollapse,
+        showPopover: showPopover
+    }
+})();
+
+var inputFieldModule = (function(){
+    
+    function clearFiels(sufix){
+        $('#leadEmail'+sufix).val('');
+        if(sufix != 'Top')
+            $('#leadName'+sufix).val('');
+    }
+    
+    return {
+        clearFiels: clearFiels
+    }
+})();
+
 var leadModule = (function(){
     function saveLead(leadEmail, leadName, sufix, ebookType){
         var leadTime = new Date().toLocaleString();
@@ -36,42 +109,20 @@ var leadModule = (function(){
     }
 })();
 
-var ajaxModule = (function(){
-    function ajaxCall(type, data, endPoint, successCb){
-        console.log(JSON.stringify(data));
-        $.ajax({
-            type: type,
-            data: JSON.stringify(data),
-            contentType: 'application/json',
-            url: endPoint,						
-            success: function(data){
-                successCb(data);
-            }
-        });
-    }
-
-    function getAjaxCall(data, endPoint, successCb){
-        ajaxCall('GET', data, endPoint, successCb);    
-    }
-
-    function postAjaxCall(data, endPoint, successCb){
-        ajaxCall('POST', data, endPoint, successCb);
+var loaderModule = (function(){
+    var loader = $('#loader');
+    
+    function hide(){
+        loader.hide('slow');
     }
     
-    return {
-        getAjaxCall: getAjaxCall,
-        postAjaxCall: postAjaxCall
+    function show(){
+        loader.show();
     }
-})();
-
-var validationModule = (function(){
-    function validateEmail(email) {
-        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(email);
-    }
-
-    return {
-        validateEmail: validateEmail
+    
+    return{
+        hide: hide,
+        show: show
     }
 })();
 
@@ -134,64 +185,16 @@ var postModule = (function(){
     }
 })()
 
-var loaderModule = (function(){
-    var loader = $('#loader');
-    
-    function hide(){
-        loader.hide('slow');
+var validationModule = (function(){
+    function validateEmail(email) {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
     }
-    
-    function show(){
-        loader.show();
-    }
-    
-    return{
-        hide: hide,
-        show: show
-    }
-})();
 
-var inputFieldModule = (function(){
-    
-    function clearFiels(sufix){
-        $('#leadEmail'+sufix).val('');
-        if(sufix != 'Top')
-            $('#leadName'+sufix).val('');
-    }
-    
     return {
-        clearFiels: clearFiels
+        validateEmail: validateEmail
     }
 })();
-
-var buttonModule = (function(){
-    function hidePopover(sufix){
-        $('#leadBtn'+sufix).popover('hide');
-    }
-    
-    function setClick(sufix, ebookType){
-        $('#leadBtn'+sufix).click(function(){
-            leadModule.validateAndSaveLead(sufix, ebookType);
-        });
-    }
-    
-    function showPopover(sufix){
-        $('#leadBtn'+sufix).popover('show');
-    }
-    
-    return {
-        hidePopover: hidePopover,
-        setClick: setClick,
-        showPopover: showPopover
-    }
-})();
-
-$('.row .btn').on('click', function(e) {
-    e.preventDefault();
-    var $this = $(this);
-    var $collapse = $this.closest('.collapse-group').find('.collapse');
-    $collapse.collapse('toggle');
-});
 
 function initialize(){
     loaderModule.show();
@@ -199,6 +202,8 @@ function initialize(){
     buttonModule.setClick('Top', 0);
     buttonModule.setClick('5Body', 1);
     buttonModule.setClick('JunSide', 2);
+    
+    buttonModule.setClickCollapse();
     
     postModule.getPosts();
 }
